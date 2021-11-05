@@ -12,6 +12,7 @@ public class AutorTableModel extends AbstractTableModel {
     protected static final int COL_NOME = 1;
     protected static final int COL_EMAIL = 2;
     protected static final int COL_TELEFONE = 3;
+    protected static final int COL_RECEITA = 4;
 
     private final AutorDAO dao = new AutorDAO();
     private List<Autor> autores;
@@ -48,6 +49,7 @@ public class AutorTableModel extends AbstractTableModel {
         else if (column == COL_NOME) return "Nome";
         else if (column == COL_EMAIL) return "Email";
         else if (column == COL_TELEFONE) return "Telefone";
+        else if (column == COL_RECEITA) return "Receita";
         return null;
     }
 
@@ -58,7 +60,7 @@ public class AutorTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -68,6 +70,7 @@ public class AutorTableModel extends AbstractTableModel {
         else if (columnIndex == COL_NOME) return autor.getNome();
         else if (columnIndex == COL_EMAIL) return autor.getEmail();
         else if (columnIndex == COL_TELEFONE) return autor.getTelefone();
+        else if (columnIndex == COL_RECEITA) return autor.getReceita();
         return null;
     }
 }

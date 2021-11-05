@@ -58,14 +58,15 @@ public class AutoresTable extends JFrame {
                                     AutorTableModel.COL_ID,
                                     AutorTableModel.COL_NOME,
                                     AutorTableModel.COL_EMAIL,
-                                    AutorTableModel.COL_TELEFONE
+                                    AutorTableModel.COL_TELEFONE,
+                                    AutorTableModel.COL_RECEITA
                             )
                     );
                 }
             }
         });
 
-        pnl.add(new JLabel("Buscar:"), BorderLayout.LINE_START);
+        pnl.add(new JLabel("Buscar"), BorderLayout.LINE_START);
         pnl.add(txtBuscar, BorderLayout.CENTER);
 
         return pnl;

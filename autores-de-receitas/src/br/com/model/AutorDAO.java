@@ -10,8 +10,8 @@ public class AutorDAO {
 
     private static final String SELECT_TODOS = "SELECT * FROM Autor";
 
-    private static final String INSERT = "INSERT INTO Autor SET nome=?,  email=?, telefone=?";
-    private static final String UPDATE = "UPDATE Autor SET nome=?, email=?, telefone=? WHERE id=?";
+    private static final String INSERT = "INSERT INTO Autor SET nome=?,  email=?, telefone=?, receita=?";
+    private static final String UPDATE = "UPDATE Autor SET nome=?, email=?, telefone=?, receita=? WHERE id=?";
     private static final String DELETE = "DELETE FROM Autor WHERE id=?";
 
     private Autor doResultSet(ResultSet rs) throws SQLException {
@@ -19,7 +19,8 @@ public class AutorDAO {
                 rs.getInt("id"),
                 rs.getString("nome"),
                 rs.getString("email"),
-                rs.getString("telefone")
+                rs.getString("telefone"),
+                rs.getString("receita")
         );
     }
 
@@ -48,6 +49,7 @@ public class AutorDAO {
             stmt.setString(1, autor.getNome());
             stmt.setString(2, autor.getEmail());
             stmt.setString(3, autor.getTelefone());
+            stmt.setString(4, autor.getReceita());
 
             if (autor.getId() == -1){
                 stmt.executeUpdate();
@@ -56,7 +58,7 @@ public class AutorDAO {
                     autor.setId(rs.getInt(1));
                 }
             } else {
-                stmt.setInt(4, autor.getId());
+                stmt.setInt(5, autor.getId());
                 stmt.executeUpdate();
             }
 

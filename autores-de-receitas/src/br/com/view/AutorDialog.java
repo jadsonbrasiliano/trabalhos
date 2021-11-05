@@ -9,6 +9,7 @@ public class AutorDialog extends JDialog {
 
     JTextField txtNome = new JTextField();
     JTextField txtEmail = new JTextField();
+    JTextField txtReceita = new JTextField();
     JTextField txtTelefone = new JTextField();
 
     private final Autor autor;
@@ -49,6 +50,8 @@ public class AutorDialog extends JDialog {
         pnl.add(new JLabel("Email:"), grd);
         grd.gridy = 2;
         pnl.add(new JLabel("Telefone:"), grd);
+        grd.gridy = 3;
+        pnl.add(new JLabel("Receita:"), grd);
 
         // fields
         grd.fill = GridBagConstraints.HORIZONTAL;
@@ -59,6 +62,8 @@ public class AutorDialog extends JDialog {
         pnl.add(txtEmail, grd);
         grd.gridy = 2;
         pnl.add(txtTelefone, grd);
+        grd.gridy = 3;
+        pnl.add(txtReceita, grd);
 
         return pnl;
     }
@@ -70,7 +75,8 @@ public class AutorDialog extends JDialog {
         btnSalvar.addActionListener(event -> {
             if (txtNome.getText().equals("")
                     || txtEmail.getText().equals("")
-                    || txtTelefone.getText().equals("")) return;
+                    || txtTelefone.getText().equals("")
+                    || txtReceita.getText().equals("")) return;
             this.salvo = true;
             JOptionPane.showMessageDialog(this,
                     "Concluido com sucesso!",
@@ -93,6 +99,7 @@ public class AutorDialog extends JDialog {
         autor.setNome(txtNome.getText());
         autor.setEmail(txtEmail.getText());
         autor.setTelefone(txtTelefone.getText());
+        autor.setReceita(txtReceita.getText());
         return autor;
     }
 
@@ -100,5 +107,6 @@ public class AutorDialog extends JDialog {
         txtNome.setText(autor.getNome());
         txtEmail.setText(autor.getEmail());
         txtTelefone.setText(autor.getTelefone());
+        txtReceita.setText(autor.getReceita());
     }
 }
