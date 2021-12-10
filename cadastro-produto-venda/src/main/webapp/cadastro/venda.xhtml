@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cadastrar vendas</title>
+</h:head>
+<h:body>
+
+	<hr/>
+	<h:outputLabel value="Cadastrar venda" style="font-size: xx-large;"/>
+	<hr/>
+	
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Data da venda"/>
+			<h:inputText value="#{vendaBean.venda.dataVenda}">
+				<c:convertDateTime pattern="dd/MM/yyyy" />
+			</h:inputText>
+			<h:outputLabel value="Total da venda"/>
+			<h:inputText value="#{vendaBean.venda.total}"/>
+			<h:outputLabel value="Produtos [id]"/>	
+			<h:inputText value="#{vendaBean.id_item}"/>
+			<h:commandButton action="#{vendaBean.adicionarItem(vendaBean.id_item)}" value="Adicionar item"/>
+		<h:commandButton action="#{vendaBean.criar()}" value="Salvar"/>
+		</h:panelGrid>
+	</h:form>
+	
+	<hr/>
+	<h:outputLabel value="Listagem dos produtos" style="font-size: large"/>
+	<hr/>
+	
+	<h:dataTable value="#{produtoBean.produtos}" var="produto" border="1"
+		cellpadding="5" cellspacing="5">
+	
+		<h:column>
+			<c:facet name="header">
+				<h:outputLabel value="Id"/>
+			</c:facet>
+			<h:outputText value="#{produto.id}" style="text-align:center; display:block;"/>
+		</h:column>
+		
+		<h:column>
+			<c:facet name="header">
+				<h:outputLabel value="Nome"/>
+			</c:facet>
+			<h:outputText value="#{produto.nome}" style="text-align:center; display:block;"/>
+		</h:column>
+		
+		<h:column>
+			<c:facet name="header">
+				<h:outputLabel value="Preço"/>
+			</c:facet>
+			<h:outputText value="#{produto.preco}" style="text-align:center; display:block;"/>
+		</h:column>
+		
+		<h:column>
+			<c:facet name="header">
+				<h:outputLabel value="Estoque"/>
+			</c:facet>
+			<h:outputText value="#{produto.estoque}" style="text-align:center; display:block"/>
+		</h:column>
+	</h:dataTable>
+	
+</h:body>
+</html>

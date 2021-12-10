@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Listar vendas</title>
+</h:head>
+<h:body>
+	<hr/>
+	<h:outputLabel value="Listagem das vendas" style="font-size: xx-large"/>
+	<hr/>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:commandButton action="/cadastro/venda" value="Cadastrar"/>
+		</h:panelGrid>
+	</h:form>
+	<hr/>
+	
+	<h:dataTable value="#{vendaBean.vendas}" var="venda" border="1"
+		cellpadding="5" cellspacing="5">
+	
+		<h:column>
+			<c:facet name="header">
+				<h:outputLabel value="Id"/>
+			</c:facet>
+			<h:outputText value="#{venda.id}" style="text-align:center; display:block;"/>
+		</h:column>
+		
+		<h:column>
+			<c:facet name="header">
+				<h:outputLabel value="Data"/>
+			</c:facet>
+			<h:outputText value="#{venda.dataVenda}" style="text-align:center; display:block;"/>
+		</h:column>
+		
+		<h:column>
+			<c:facet name="header">
+				<h:outputLabel value="Total da venda"/>
+			</c:facet>
+			<h:outputText value="#{venda.total}" style="text-align:center; display:block;"/>
+		</h:column>
+		
+	</h:dataTable>
+</h:body>
+</html>
